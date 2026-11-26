@@ -1,6 +1,6 @@
 {
-    "name": "lab01_profile",
-    "short_name": "lab01_profile",
+    "name": "About me",
+    "short_name": "About me",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

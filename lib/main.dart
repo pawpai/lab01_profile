@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+const studentId = '67110643';
+const studentName = 'ปวริศร์ จันทวรรณ์';
+
 void main() {
   runApp(
     MaterialApp(
@@ -16,6 +19,22 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: Center(child: Text('Hello!')));
+    return Scaffold(
+      appBar: AppBar(title: const Text('Lab L1 · $studentId')),
+      body: const SafeArea(
+        child: Center(
+          child: SingleChildScrollView(
+            padding: EdgeInsets.all(16),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(Icons.person, size: 96),
+                Text('$studentName - $studentId', textAlign: TextAlign.center),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
