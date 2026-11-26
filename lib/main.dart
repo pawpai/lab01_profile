@@ -14,22 +14,40 @@ void main() {
   );
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int _likes = 0;
+
+  void _like() {
+    setState(() {
+      _likes++;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Lab L1 · $studentId')),
-      body: const SafeArea(
+      body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(Icons.person, size: 96),
-                Text('$studentName - $studentId', textAlign: TextAlign.center),
+                const Icon(Icons.person, size: 96),
+                const Text(
+                  '$studentName - $studentId',
+                  textAlign: TextAlign.center,
+                ),
+                Text('Likes: $_likes'),
+                FilledButton(onPressed: _like, child: const Text('Like')),
               ],
             ),
           ),
